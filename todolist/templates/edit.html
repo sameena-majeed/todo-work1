@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %} 
+  {% if item %}
+
+    <form class=" mt-5 text-center justify-center " method="POST">
+    {% csrf_token %}
+    <label class="font-bold text-2xl text-red-800">
+      Edit Content: 
+    </label>
+    <input class="form-control mr-sm-2 font-bold " type="search" name="item" value="{{ item.item }}" placeholder="{{ item.item }}" aria-label="Search" >
+
+    <!-- we pass it as hidden bcz, whenever usr submit it default value will b false. -->
+    <input type="hidden" name="completed" value="{{ item.completed }}"> </br>
+
+    <button class="btn bg-amber-500  font-bold " type="submit">Edit Item</button>
+    </form>
+
+  {% endif %}
+
+{% endblock %}
